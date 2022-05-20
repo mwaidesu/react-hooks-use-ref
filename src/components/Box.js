@@ -1,14 +1,19 @@
 import React, { useRef } from "react";
 
-function Box() {
-  const elementRef = useRef();
+function CounterRef() {
+  const count = useRef(0);
+
+  function handleClick() {
+    count.current = count.current + 1;
+    console.log(count.current);
+  }
 
   return (
-    <div ref={elementRef}>
-      <h1>Box</h1>
-      <button>Measure</button>
+    <div>
+      <h1>CounterRef</h1>
+      <button onClick={handleClick}>{count.current}</button>
     </div>
   );
 }
 
-export default Box;
+export default CounterRef;
